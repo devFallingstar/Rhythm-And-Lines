@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Game System">
+      <UniqueIdentifier>{0f4ead8f-c1dd-4bef-b4da-3b68d281b75f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Note and Data">
+      <UniqueIdentifier>{f08402df-d3ca-4708-a5be-7a5f6ec41a0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Globals">
+      <UniqueIdentifier>{f36666e1-b392-4edb-8117-c5a578032d0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Music Manager">
+      <UniqueIdentifier>{d5784162-0157-4141-a4c7-f7833088fac7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MusicSelect.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalVariables.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowNotes.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DataLoader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicPlayer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="NoteChecker.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameStart.c">
+      <Filter>소스 파일\Game System</Filter>
+    </ClCompile>
+    <ClCompile Include="DataLoader.c">
+      <Filter>소스 파일\Note and Data</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowNotes.c">
+      <Filter>소스 파일\Note and Data</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalVariables.c">
+      <Filter>소스 파일\Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicSelect.c">
+      <Filter>소스 파일\Music Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicPlayer.c">
+      <Filter>소스 파일\Music Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="NoteChecker.c">
+      <Filter>소스 파일\Note and Data</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
