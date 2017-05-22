@@ -8,7 +8,7 @@
 
 typedef struct {
 	int timeslice;
-	int noteId;
+	char noteId[10];
 	int originIdx;
 }TmpNote;
 

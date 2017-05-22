@@ -36,7 +36,7 @@ void makeTestData(){
 void loadData(int songId){
 	//makeTestData();
 	FILE *rf;
-	char str1[10], str2[3];
+	char str1[10], str2[10];
 	if (songId == 1)
 	{
 		rf = fopen("./MData/Notes/test1.txt", "r");
@@ -45,7 +45,7 @@ void loadData(int songId){
 	for (int i = 0; i < g_maxNotes; i++) {
 		if (fscanf(rf, "%s %s", str1, str2) > 0) {
 			g_notes[i].timeslice = atoi(str1);
-			g_notes[i].noteId = atoi(str2);
+			strcpy(g_notes[i].noteId, str2);
 		}
 	}
 	fclose(rf);

@@ -8,7 +8,7 @@ extern MyNote *g_notes;
 
 void showNotes(){
     for (int i = 0; i < g_maxNotes; i++) {
-        printNote(g_notes[i].noteId);
+        //printNote(g_notes[i].noteId);
     }
 }
 
@@ -50,18 +50,31 @@ void getNotesGUI(){
         
         for (j = i+99; j >= i; j--) {
             //printf("%d - %d\n", j, g_notes[j].noteId);
-            printNoteGUI(g_notes[j].noteId, j);
+            //printNoteGUI(g_notes[j].noteId, j);
         }
         
 		Sleep(100);
     }
 }
 
-void printNoteGUI(int _id, int line) {
+void printNoteGUI(char _id[10], int line) {
     int startOffsetX = 150;
     int noteStartOffsetX = 175; 
-    
-    drawOneNote(startOffsetX+(50*(_id-1)), line);
+	char tmpStr[10];
+	char *tok = NULL;
+	
+	strcpy(tmpStr, _id);
+
+	if (strcmp(tmpStr, "8")!=0)
+	{
+		tok = strtok(tmpStr, "|");
+		
+		while (tok != NULL)
+		{
+			drawOneNote(startOffsetX + (50 * (atoi(tok) - 1)), line);
+			tok = strtok(NULL, "|");
+		}
+	}
 }
 
 void drawOneNote(int offsetX, int line){

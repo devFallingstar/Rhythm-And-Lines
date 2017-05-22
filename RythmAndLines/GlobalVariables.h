@@ -12,7 +12,7 @@
 #include <stdio.h>
 typedef struct {
     int timeslice;
-    int noteId;
+    char noteId[10];
 }MyNote;
 
 

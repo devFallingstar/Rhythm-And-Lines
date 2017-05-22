@@ -152,12 +152,12 @@ void displayMainWindow(){
     
     if (line < g_maxNotes) {
         for (j = line; j < line+MAXSIZE; j++) {
-            myTmpNotes[tmpIdx].noteId = g_notes[j].noteId;
+			strcpy(myTmpNotes[tmpIdx].noteId, g_notes[j].noteId);
             myTmpNotes[tmpIdx].timeslice = g_notes[j].timeslice;
 			myTmpNotes[tmpIdx].originIdx = j;
             tmpIdx++;
         }
-        
+		
         for (k=0; k<=MAXSIZE; k++) {
             printNoteGUI(myTmpNotes[k].noteId, k);
         }
