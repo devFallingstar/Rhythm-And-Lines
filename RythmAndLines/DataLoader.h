@@ -9,10 +9,6 @@
 #ifndef DataLoader_h
 #define DataLoader_h
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 void makeTestData();
 void loadData(int songId);
 

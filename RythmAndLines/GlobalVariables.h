@@ -9,7 +9,6 @@
 #ifndef GlobalVariables_h
 #define GlobalVariables_h
 
-#include <stdio.h>
 typedef struct {
     int timeslice;
     char noteId[10];

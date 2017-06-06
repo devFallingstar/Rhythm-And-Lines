@@ -146,6 +146,7 @@
     <ClInclude Include="MusicSelect.h" />
     <ClInclude Include="NoteChecker.h" />
     <ClInclude Include="ShowNotes.h" />
+    <ClInclude Include="TotalHeader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataLoader.c" />

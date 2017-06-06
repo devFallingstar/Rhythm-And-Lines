@@ -1,3 +1,4 @@
+#include "TotalHeader.h"
 #include "NoteChecker.h"
 #include "MusicSelect.h"
 #include "GlobalVariables.h"
@@ -36,25 +37,25 @@ int checkNote(int keyNum) {
 	}
 	else if (strstr(myTmpNotes[5].noteId, tmp))
 	{
-		printf("Good!\n");
+		printf("Good! 1\n");
 		strcpy(g_notes[myTmpNotes[5].originIdx].noteId, "8");
 		return 50;
 	}
 	else if (strstr(myTmpNotes[6].noteId, tmp))
 	{
-		printf("Good!\n");
+		printf("Good! 2\n");
 		strcpy(g_notes[myTmpNotes[6].originIdx].noteId, "8");
 		return 50;
 	}
 	else if (strstr(myTmpNotes[7].noteId, tmp))
 	{
-		printf("Good?\n");
+		printf("Good? 3\n");
 		strcpy(g_notes[myTmpNotes[7].originIdx].noteId, "8");
 		return 50;
 	}
 	else if (strstr(myTmpNotes[8].noteId, tmp))
 	{
-		printf("Good?\n");
+		printf("Good? 4\n");
 		strcpy(g_notes[myTmpNotes[8].originIdx].noteId, "8");
 		return 10;
 	}

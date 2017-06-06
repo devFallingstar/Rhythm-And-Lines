@@ -1,10 +1,7 @@
 #ifndef ShowNotes_h
 #define ShowNotes_h
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <gl\glut.h>
-#include <Windows.h>
+
 
 void showNotes();
 void getNotesGUI();

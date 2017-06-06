@@ -1,10 +1,7 @@
 #ifndef MusicSelect_h
 #define MusicSelect_h
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <gl\glut.h>
-#include <Windows.h>
+
 
 typedef struct {
 	int timeslice;
@@ -21,5 +18,6 @@ void timerMainWindow();
 void keyboardMainWindow(unsigned char key, int x, int y);
 void keyboardUpMainWindow(unsigned char key, int x, int y);
 void highlightKey();
+void drawText(int posX, int posY, char* strMsg);
 
 #endif

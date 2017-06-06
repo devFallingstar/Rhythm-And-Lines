@@ -1,3 +1,4 @@
+#include "TotalHeader.h"
 #include "MusicPlayer.h"
 
 void playMusic(int id) {

@@ -6,6 +6,7 @@
 //  Copyright © 2017년 Fallingstar. All rights reserved.
 //
 
+#include "TotalHeader.h"
 #include "DataLoader.h"
 #include "GlobalVariables.h"
 
@@ -22,7 +23,7 @@ void makeTestData(){
 	
 	FILE *wf;
     
-    wf = fopen("./MData/Notes/note1.txt", "w");
+    wf = fopen("./MData/Notes/noteTest.txt", "w");
     for (int i = 0; i < g_maxNotes; i++) {
         if (i < 1500) {
             fprintf(wf, "%d\t%d\n", i, 8);
@@ -34,12 +35,11 @@ void makeTestData(){
 	
 }
 void loadData(int songId){
-	//makeTestData();
 	FILE *rf;
 	char str1[10], str2[10];
 	if (songId == 1)
 	{
-		rf = fopen("./MData/Notes/test1.txt", "r");
+		rf = fopen("./MData/Notes/noteTest.txt", "r");
 	}
 	g_notes = (MyNote*)malloc(sizeof(MyNote)*g_maxNotes);
 	for (int i = 0; i < g_maxNotes; i++) {
