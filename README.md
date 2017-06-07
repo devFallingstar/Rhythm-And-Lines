@@ -13,19 +13,27 @@ You can make your own note by editing text file with any programs.
 
 Rules of notes should like:
 
-(frame number) (note number)|(plus note number)|(more note number)
+(frame number)    (note number)|(plus note number)|(more note number)
 
 If the note looks like:
 
+```
 1 3
+
 3 7
+
 8 5|1
+```
 
 it means "Drop 3rd note at 1st frame, drop 7th note at 3rd frame and drop 5th and 1st notes at 8th frame".
 
 # Is the note making should done by hands?
 
-Unfortunately, yes. Since this program is made by one developer, there's no notes making program. So, if you have a good idea or good programs to make notes, please contact to stardung86@gmail.com or leave issue in this repository.
+Unfortunately, yes. Since this program is made by one developer, there's no notes making program.
+
+So, if you have a good idea or good programs to make notes, please contact to stardung86@gmail.com or leave issue in this repository.
 
 # Author
-This program is made by Dev.Fallingstar named YANG YOU SUNG in Korean, student of Software development major, Gachon university, feel free to use my sources. And if you have any question, please contact to stardung86@gmail.com or kakaotalk(u0729). Thank you for your concern.
+This program is made by Dev.Fallingstar named YANG YOU SUNG in Korean, student of Software development major, Gachon university. 
+
+Feel free to use my sources. If you have any question or feedback, please contact to stardung86@gmail.com or kakaotalk(u0729). Thank you for your concern.
