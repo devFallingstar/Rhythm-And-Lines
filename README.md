@@ -1,19 +1,24 @@
 # Rhythm And Lines
 
-`Rhythm And Lines` is note-based rhythm game made with C, OpenGL and GLUT.
+`Rhythm And Lines` is note-based rhythm game made with `C`, `OpenGL` and `GLUT`.
+
 You can also put your own music and notes in MData directory.
 
 # How can i add my music?
 
-You can play your music by entering the music code. Music code can be customize by everybody so all of you guys can make, modify and even delete the current musics and music codes. You can customize music codes or play you music with function `playMusic(int id)` in `MusicPlayer.c`.
+You can play your music by entering the music code.
+
+Music code can be customize by everybody so all of you guys can make, modify and even delete the current musics and music codes. You can customize music codes or play you music with function `playMusic(int id)` in `MusicPlayer.c`.
 
 # How can i add my note for music?
 
-You can make your own note by editing text file with any programs.
+You can make your own note by editing text file(.txt) with any programs.
 
 Rules of notes should like:
 
+```
 (frame number)    (note number)|(plus note number)|(more note number)
+```
 
 If the note looks like:
 
