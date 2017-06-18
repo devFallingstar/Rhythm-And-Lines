@@ -14,10 +14,6 @@ extern char g_str[50][2];
 extern char **g_dataStr;
 extern int g_maxNotes;
 extern MyNote *g_notes;
-/*
- 첫번째 줄 - '곡명      전체 라인 수'
- 두번째 줄부터 - '라인 넘버    노트 위치'
- */
 
 void makeTestData(){
 	
@@ -36,10 +32,13 @@ void makeTestData(){
 }
 void loadData(int songId){
 	FILE *rf;
-	char str1[10], str2[10];
+	char str1[10], str2[15];
 	if (songId == 1)
 	{
-		rf = fopen("./MData/Notes/noteTest.txt", "r");
+		rf = fopen("./MData/Notes/note1.txt", "r");
+	}
+	else if (songId == 2) {
+		rf = fopen("./MData/Notes/note_flower.txt", "r");
 	}
 	g_notes = (MyNote*)malloc(sizeof(MyNote)*g_maxNotes);
 	for (int i = 0; i < g_maxNotes; i++) {

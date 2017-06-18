@@ -18,6 +18,8 @@ void timerMainWindow();
 void keyboardMainWindow(unsigned char key, int x, int y);
 void keyboardUpMainWindow(unsigned char key, int x, int y);
 void highlightKey();
-void drawText(int posX, int posY, char* strMsg);
+int checkScore(int key);
+int checkMiss();
+void drawText(int posX, int posY, int posZ, char* strMsg);
 
 #endif

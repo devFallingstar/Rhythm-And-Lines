@@ -12,7 +12,6 @@ extern int g_noteOffset[7];
 
 void showNotes(){
     for (int i = 0; i < g_maxNotes; i++) {
-        //printNote(g_notes[i].noteId);
     }
 }
 
@@ -64,7 +63,7 @@ void getNotesGUI(){
 void printNoteGUI(char _id[10], int line) {
     int startOffsetX = MAX_X/2-200;
     int noteStartOffsetX = (MAX_X / 2 - 200)+25;
-	char tmpStr[10];
+	char tmpStr[15];
 	char *tok = NULL;
 	
 	strcpy(tmpStr, _id);

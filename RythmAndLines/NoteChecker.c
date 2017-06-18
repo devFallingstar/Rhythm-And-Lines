@@ -37,40 +37,79 @@ int checkNote(int keyNum) {
 	}
 	else if (strstr(myTmpNotes[5].noteId, tmp))
 	{
-		printf("Good! 1\n");
+		printf("Perfect!\n");
 		strcpy(g_notes[myTmpNotes[5].originIdx].noteId, "8");
-		return 50;
+		return 100;
 	}
 	else if (strstr(myTmpNotes[6].noteId, tmp))
 	{
-		printf("Good! 2\n");
+		printf("Perfect!\n");
 		strcpy(g_notes[myTmpNotes[6].originIdx].noteId, "8");
-		return 50;
+		return 100;
 	}
 	else if (strstr(myTmpNotes[7].noteId, tmp))
 	{
-		printf("Good? 3\n");
+		printf("Perfect!\n");
 		strcpy(g_notes[myTmpNotes[7].originIdx].noteId, "8");
-		return 50;
+		return 100;
 	}
 	else if (strstr(myTmpNotes[8].noteId, tmp))
 	{
-		printf("Good? 4\n");
+		printf("Perfect!\n");
 		strcpy(g_notes[myTmpNotes[8].originIdx].noteId, "8");
-		return 10;
+		return 100;
 	}
 	else if (strstr(myTmpNotes[9].noteId, tmp))
 	{
-		printf("Not good... %s\n", tmp);
+		printf("Perfect!\n");
 		strcpy(g_notes[myTmpNotes[9].originIdx].noteId, "8");
-		return 10;
+		return 100;
 	}
-	else if (strstr(myTmpNotes[0].noteId, tmp))
+	else if (strstr(myTmpNotes[10].noteId, tmp))
 	{
-		printf("Not good... %s\n", myTmpNotes[0].noteId);
-		strcpy(g_notes[myTmpNotes[0].originIdx].noteId, "8");
-		return 10;
+		printf("Perfect!\n");
+		strcpy(g_notes[myTmpNotes[10].originIdx].noteId, "8");
+		return 100;
 	}
+	else if (strstr(myTmpNotes[11].noteId, tmp))
+	{
+		printf("Perfect!\n");
+		strcpy(g_notes[myTmpNotes[11].originIdx].noteId, "8");
+		return 100;
+	}
+	else if (strstr(myTmpNotes[12].noteId, tmp))
+	{
+		printf("Perfect!\n");
+		strcpy(g_notes[myTmpNotes[12].originIdx].noteId, "8");
+		return 100;
+	}
+	/*
+	else if (strstr(myTmpNotes[13].noteId, tmp))
+	{
+		printf("Perfect!\n");
+		strcpy(g_notes[myTmpNotes[13].originIdx].noteId, "8");
+		return 100;
+	}
+	else if (strstr(myTmpNotes[14].noteId, tmp))
+	{
+		printf("Good!\n");
+		strcpy(g_notes[myTmpNotes[14].originIdx].noteId, "8");
+		return 50;
+	}
+	else if (strstr(myTmpNotes[15].noteId, tmp))
+	{
+		printf("Good!\n");
+		strcpy(g_notes[myTmpNotes[15].originIdx].noteId, "8");
+		return 40;
+	}
+	else if (strstr(myTmpNotes[16].noteId, tmp))
+	{
+		printf("Bad!\n");
+		strcpy(g_notes[myTmpNotes[16].originIdx].noteId, "8");
+		return 20;
+	}
+	*/
+	
 	
 	return 0;
 }

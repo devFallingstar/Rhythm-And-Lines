@@ -11,8 +11,7 @@
 
 typedef struct {
     int timeslice;
-    char noteId[10];
+    char noteId[15];
 }MyNote;
-
 
 #endif /* GlobalVariables_h */

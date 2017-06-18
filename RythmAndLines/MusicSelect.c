@@ -15,8 +15,10 @@ extern char **g_dataStr;
 extern MyNote *g_notes;
 extern int g_noteOffset[7];
 
-int score = 0;
-char scoreStr[10];
+int score = 0, combo = 0;
+char noteCheckStr[20];
+char scoreStr[50];
+char comboStr[50];
 int keyPress[7] = { 0, };
 int line=0;
 int gameWinID, gameSubWinID;
@@ -25,16 +27,24 @@ TmpNote *myTmpNotes;
 
 void musicStart(int id) {
 	int i;
+	int delay;
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
 	glutInitWindowSize(1600, 900);
 	glutInitWindowPosition(300, 0);
-	glutCreateWindow("Rhythm And Lines - Evans");
-
+	if (id == 1) {
+		glutCreateWindow("Rhythm And Lines - Evans");
+		delay = 150;
+	}
+	else if (id == 2) {
+		glutCreateWindow("Rhythm And Lines - FLOWER");
+		delay = 150;
+	}
+	
 	glutDisplayFunc(displayMainWindow);
 	glutReshapeFunc(reshapeMainWindow);
 	glutKeyboardFunc(keyboardMainWindow);
 	glutKeyboardUpFunc(keyboardUpMainWindow);
-	glutTimerFunc(20, timerMainWindow, 1);
+	glutTimerFunc(delay, timerMainWindow, 1);
 
 	score = 0;
 	g_maxNotes = 6000;
@@ -110,14 +120,13 @@ void keyboardUpMainWindow(unsigned char key, int x, int y) {
 		break;
 	}
 }
-
 void highlightKey() {
 	int i;
-	int cnt = 0;
 	for (i = 0; i < 7; i++)
 	{
 		if (keyPress[i]==1)
 		{
+			int plusScore;
 			int offsetX = startX+(50*i);
 			glBegin(GL_QUADS);
 			glColor4d(1, 1, 1, 1);
@@ -128,10 +137,33 @@ void highlightKey() {
 			glVertex3d(offsetX, 150,0);
 			glEnd();
 
-			score += checkNote(i+1);
-
-			cnt++;
+			checkScore(i + 1);
 		}
+	}
+}
+int checkScore(int key) {
+	int plusScore = checkNote(key);
+
+	if (plusScore > 0) {
+		score += plusScore;
+		combo++;
+		if (plusScore >= 100) {
+			sprintf(noteCheckStr, "Perfect!!");
+		}
+		else
+		{
+			sprintf(noteCheckStr, "Good!");
+		}
+	}
+}
+int checkMiss() {
+	int i;
+	if (strcmp(myTmpNotes[0].noteId, "8") != 0) {
+		sprintf(noteCheckStr, "MISS");
+		return 1; //Miss
+	}
+	else {
+		return 0; //No miss
 	}
 }
 void initMainWindow(){
@@ -187,12 +219,17 @@ void displayMainWindow(){
         }
     }
 	highlightKey();
-	
-	sprintf(scoreStr, "%d", score);
-	drawText(MAX_X/2, MAX_Y/2, scoreStr);
+	if (checkMiss() == 1) {
+		combo = 0;
+	}
 
-	//glFlush(); //-> Fast but flickering
-	glutSwapBuffers(); // -> No flickering but slow
+	drawText(890, 800, 200, noteCheckStr);
+	sprintf(scoreStr, "Score : %d", score);
+	drawText(300, 550, 350, scoreStr);
+	sprintf(comboStr, "Combo : %d", combo);
+	drawText(295, 550, 330, comboStr);
+
+	glutSwapBuffers();
 }
 
 void timerMainWindow(){
@@ -202,17 +239,17 @@ void timerMainWindow(){
     glutTimerFunc(10, timerMainWindow, 1);
 }
 
-void drawText(int posX, int posY, char* strMsg){
-	int i, j;
+void drawText(int posX, int posY, int posZ, char* strMsg){
+	int i;
 	int len;
 	double FontWidth = 0.02;
 
 	len = strlen(strMsg);
 	glColor3f(1, 0, 0);
-	glRasterPos2f(posX, posY);
+	glRasterPos3f(posX, posY, posZ);
 	glPushMatrix();
 	glScaled(2.0, 2.0, 2.0);
-	for (int i = 0; i < len; ++i)
+	for (i = 0; i < len; ++i)
 	{
 		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, strMsg[i]);
 	}
