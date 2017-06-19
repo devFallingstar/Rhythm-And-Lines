@@ -81,13 +81,6 @@ void printNoteGUI(char _id[10], int line) {
 }
 
 void drawOneNote(int offsetX, int line){
-	int startOffsetX = MAX_X / 2 - 200;
-    int x1,x2, y1,y2;
-    
-	x1 = offsetX + 5;
-	x2 = offsetX + 45;
-	y1 = ((10 * line)) + 2;
-	y2 = (15 + (10 * line)) - 2;
 	
 	if (offsetX == g_noteOffset[0] || offsetX == g_noteOffset[6])
 	{
@@ -95,15 +88,15 @@ void drawOneNote(int offsetX, int line){
 	}
 	else if (offsetX == g_noteOffset[1] || offsetX == g_noteOffset[5])
 	{
-		glColor4f(0, 0, 1, 0.5);
+		glColor4f(0, 0, 1, 1);
 	}
 	else if (offsetX == g_noteOffset[2] || offsetX == g_noteOffset[4])
 	{
-		glColor4f(1, 0, 0, 0.5);
+		glColor4f(1, 0, 0, 1);
 	}
 	else if (offsetX == g_noteOffset[3])
 	{
-		glColor4f(1, 0.5, 0, 0.5);
+		glColor4f(1, 0.5, 0, 1);
 	}
 
 	glPushMatrix();

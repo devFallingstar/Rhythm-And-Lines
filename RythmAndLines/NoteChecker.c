@@ -64,12 +64,27 @@ int checkNote(int keyNum) {
 	else if (strstr(myTmpNotes[11].noteId, tmp))
 	{
 		strcpy(g_notes[myTmpNotes[11].originIdx].noteId, "8");
-		return 100;
+		return 80;
 	}
 	else if (strstr(myTmpNotes[12].noteId, tmp))
 	{
 		strcpy(g_notes[myTmpNotes[12].originIdx].noteId, "8");
-		return 100;
+		return 80;
+	}
+	else if (strstr(myTmpNotes[13].noteId, tmp))
+	{
+		strcpy(g_notes[myTmpNotes[13].originIdx].noteId, "8");
+		return 80;
+	}
+	else if (strstr(myTmpNotes[14].noteId, tmp))
+	{
+		strcpy(g_notes[myTmpNotes[14].originIdx].noteId, "8");
+		return 50;
+	}
+	else if (strstr(myTmpNotes[13].noteId, tmp))
+	{
+		strcpy(g_notes[myTmpNotes[13].originIdx].noteId, "8");
+		return 50;
 	}
 	
 	return 0;

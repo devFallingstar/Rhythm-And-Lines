@@ -16,7 +16,7 @@ extern MyNote *g_notes;
 extern int g_noteOffset[7];
 
 int score = 0, combo = 0, maxCombo = 0;
-int missCnt = 0, perfectCnt = 0;
+int missCnt = 0, perfectCnt = 0, goodCnt = 0, notbadCnt = 0, uhohCnt = 0;
 char noteCheckStr[20];
 char scoreStr[50];
 char comboStr[50];
@@ -40,12 +40,13 @@ void musicStart(int id) {
 	}
 	else if (id == 2) {
 		glutCreateWindow("Rhythm And Lines - FLOWER");
-		delay = 150;
+		delay = 10;
 		g_maxNotes = 3800;
 	}
 	else if (id == 999) {
 		glutCreateWindow("Rhythm And Lines - Test");
 		delay = 150;
+		g_maxNotes = 3800;
 	}
 	score = 0;
 	myTmpNotes = (TmpNote*)malloc(sizeof(TmpNote)*MAXSIZE);
@@ -68,7 +69,7 @@ void musicStart(int id) {
 	glutMainLoop();
 }
 void keyboardMainWindow(unsigned char key, int x, int y) {
-	int limit = 10;
+	double limit = 7;
 	switch (key)
 	{
 	case 's':
@@ -131,12 +132,12 @@ void highlightKey() {
 	int i;
 	for (i = 0; i < 7; i++)
 	{
-		if (keyPress[i]>=1)
+		if (keyPress[i] > 0)
 		{
 			int plusScore;
 			int offsetX = startX+(50*i);
 			glBegin(GL_QUADS);
-			glColor4d(1, 1, 1, 1);
+			glColor4d(1, 1, 1, keyPress[i]);
 			glVertex3d(offsetX, 30, 0);
 			glVertex3d(offsetX + 50, 30,0);
 			glColor4d(1, 1, 1, 0);
@@ -145,7 +146,7 @@ void highlightKey() {
 			glEnd();
 
 			checkScore(i + 1);
-			keyPress[i] -= 1;
+			keyPress[i] -= 0.1;
 		}
 	}
 }
@@ -154,11 +155,29 @@ int checkScore(int key) {
 
 	if (plusScore > 0) {
 		score += plusScore;
-		combo++;
-		if (plusScore >= 100) {
+
+		if (plusScore == 100) {
 			colorCode = 1;
 			sprintf(noteCheckStr, "Perfect!!");
 			perfectCnt++;
+			combo++;
+		}
+		else if (plusScore == 80) {
+			colorCode = 1;
+			sprintf(noteCheckStr, "Good!");
+			goodCnt++;
+			combo++;
+		}
+		else if (plusScore == 50) {
+			colorCode = 1;
+			sprintf(noteCheckStr, "Not bad");
+			notbadCnt++;
+			combo++;
+		}
+		else {
+			colorCode = 1;
+			sprintf(noteCheckStr, "Uh oh?");
+			uhohCnt++;
 		}
 
 		if (maxCombo < combo)
@@ -190,6 +209,7 @@ void drawLines(){
 	int i;
     glColor3d(1, 1, 1);
 
+	// Horizontal lines
     for (i = 0; i < 8; i++) {
         glBegin(GL_LINES);
         glVertex3d(startX+(i*50), MAX_Y, 0);
@@ -197,6 +217,7 @@ void drawLines(){
         glEnd();
     }
 	
+	// Vertical lines
 	for (i = 0; i < 2; i++) {
 		glBegin(GL_LINES);
 		glVertex3d(startX, 30 + (i * 15), 0);
@@ -232,13 +253,15 @@ void displayMainWindow(){
         }
 	}
 	else {
-		printf("END!\n");
+		printf("-------- FINISH --------\n");
+		printf("Result - \n");
 		printf("Total score : %d\n", score);
-		printf("Max combo : %d\n", maxCombo);
-		printf("Perfect : %d\n", perfectCnt);
-		printf("Miss : %d\n", missCnt);
+		printf("Max combo   : %d\n", maxCombo);
+		printf("Perfect     : %d\n", perfectCnt);
+		printf("Miss        : %d\n", missCnt);
 		sndPlaySound(NULL, SND_ASYNC);
 		glutHideWindow();
+		exit(0);
 		return;
 	}
 	highlightKey();
@@ -264,18 +287,28 @@ void timerMainWindow(){
 void drawInfoText() {
 	// Note check
 	if (noteCheckStr[0] == 'P') {
-		glColor3f(colorCode, colorCode, 0);
+		glColor3f(0, 0, colorCode);
 		drawNoteCheck(MAX_X / 2 + 700, 1200, 100, 40, noteCheckStr);
+	}
+	else if (noteCheckStr[0] == 'G')
+	{
+		glColor3f(colorCode, colorCode, 0);
+		drawNoteCheck(MAX_X / 2 + 780, 1200, 100, 40, noteCheckStr);
+	}
+	else if (noteCheckStr[0] == 'N')
+	{
+		glColor3f(colorCode, 0, colorCode);
+		drawNoteCheck(MAX_X / 2 + 780, 1200, 100, 40, noteCheckStr);
+	}
+	else if (noteCheckStr[0] == 'U')
+	{
+		glColor3f(colorCode, 0, 0);
+		drawNoteCheck(MAX_X / 2 + 780, 1200, 100, 40, noteCheckStr);
 	}
 	else if (noteCheckStr[0] == 'M')
 	{
 		glColor3f(colorCode, 0, 0);
 		drawNoteCheck(MAX_X / 2 + 770, 1200, 100, 40, noteCheckStr);
-	}
-	else if (noteCheckStr[0] == 'B')
-	{
-		glColor3f(colorCode, 0, 0);
-		drawNoteCheck(MAX_X / 2 + 780, 1200, 100, 40, noteCheckStr);
 	}
 	
 	// Score
@@ -286,7 +319,7 @@ void drawInfoText() {
 	// Combo
 	glColor3f(1, 1, 1);
 	sprintf(comboStr, "Combo : %d", combo);
-	drawCombo(MAX_X / 2 + 2100, 600, 0, -10, comboStr);
+	drawCombo(MAX_X / 2 + 2000, 600, 0, -10, comboStr);
 }
 
 void drawScore(int posX, int posY, int posZ, int rot, char* strMsg) {
