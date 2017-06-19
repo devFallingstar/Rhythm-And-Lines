@@ -38,7 +38,10 @@ void loadData(int songId){
 		rf = fopen("./MData/Notes/note1.txt", "r");
 	}
 	else if (songId == 2) {
-		rf = fopen("./MData/Notes/note_flower.txt", "r");
+		rf = fopen("./MData/Notes/note2.txt", "r");
+	}
+	else if (songId == 999) {
+		rf = fopen("./MData/Notes/note_test.txt", "r");
 	}
 	g_notes = (MyNote*)malloc(sizeof(MyNote)*g_maxNotes);
 	for (int i = 0; i < g_maxNotes; i++) {

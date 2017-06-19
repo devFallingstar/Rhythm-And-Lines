@@ -20,6 +20,9 @@ void keyboardUpMainWindow(unsigned char key, int x, int y);
 void highlightKey();
 int checkScore(int key);
 int checkMiss();
-void drawText(int posX, int posY, int posZ, char* strMsg);
+void drawInfoText();
+void drawScore(int posX, int posY, int posZ, int rot, char* strMsg);
+void drawCombo(int posX, int posY, int posZ, int rot, char* strMsg);
+void drawNoteCheck(int posX, int posY, int posZ, int rot, char* strMsg);
 
 #endif
